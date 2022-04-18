@@ -30,34 +30,11 @@ imgContainer.addEventListener('click', onContainerClick);
 
 function onContainerClick(event) {
    
-    console.log(event.target.classList.contains('gallery__image'));
+  if (!event.target.classList.contains('gallery__link')) {
+     console.log('ссылка')
+   }
   
   
 
   
 }
- 
-
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <img src="assets/images/image.png" width="800" height="600">
-// `)
-
-// instance.show()
-
-// import * as basicLightbox from 'basiclightbox'
-
-// const instance = basicLightbox.create(`
-//     <div class="modal">
-//         <p>A custom modal that has been styled independently. It's not part of basicLightbox, but perfectly shows its flexibility.</p>
-//         <input placeholder="Type something">
-//         <a>Close</a>
-//     </div>
-// `, {
-//     onShow: (instance) => {
-//         instance.element().querySelector('a').onclick = instance.close
-//     }
-// })
-
-// instance.show()
