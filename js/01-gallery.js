@@ -1,9 +1,8 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-
-
 const imgContainer = document.querySelector('.gallery');
+
 
 const cardsMarkup = createImgCards(galleryItems);  
 imgContainer.insertAdjacentHTML('beforeend', cardsMarkup);
@@ -24,27 +23,33 @@ function createImgCards(galleryItems) {
     `
     }).join('');
 }
-const imgItem = document.querySelector(".gallery__image");
-const imgLink = document.querySelector('.gallery__link');
-
 
 
 imgContainer.addEventListener('click', onContainerClick);
 
-
+let currentImg = '';
 function onContainerClick(event) {
 
   if (!event.target.classList.contains('gallery__image')) {
     return;
-  }event.preventDefault();
-  event.target.src = event.target.dataset.source;
-  console.log(event.target.src);
-  console.log(event.target.dataset.source);
+  } event.preventDefault();
+  imgContainer.addEventListener('keydown', onImageClose);
+  const size = event.target.dataset.source;
+
+  currentImg = basicLightbox.create(`
+		   <img  src="${size}">
+	`
+  );
+  currentImg.show();
+
+}
+ 
+  function onImageClose(event) {
+  
+    if (event.code === 'Escape') {
+      currentImg.close();
+      imgContainer.removeEventListener('keydown', onImageClose); 
+    }
+ 
 }
 
-// imgLink.addEventListener('click',worker)
-
-// function worker(event) { 
-//  event.preventDefault();
- 
-// } 
