@@ -19,14 +19,9 @@ function createImgCards(galleryItems) {
     `
     }).join('');
 }
-const image = document.querySelector('.gallery__image')
 
-let gallery = new SimpleLightbox('.gallery a');
-// gallery = {
-//     captionAttribute: 'alt',
-//     captionsData:'alt',
-// }
-// gallery.defaults = {
-//     captionAttribute: 'alt',
-// }
-console.log(gallery.defaults)
+
+const gallery = new SimpleLightbox('.gallery a');
+
+gallery.options.captionsData = "alt";
+gallery.options.captionDelay = 250;
